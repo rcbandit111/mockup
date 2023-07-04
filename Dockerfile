@@ -11,4 +11,4 @@ COPY build/libs/*.jar /app/
 EXPOSE 8080
 
 # Start the app when the container launches
-CMD ["java", "-jar", "mockup-0.0.1.jar"]
+CMD ["java", "-jar", "mockup-0.0.1.jar", "--spring.config.location=file:/home/config/application-mockup-configuration.yml"]
