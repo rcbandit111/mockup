@@ -1,2 +1,5 @@
 init:
   message: "Test message loaded from default application.yml file"
+spring:
+  config:
+    location: ${CONFIG_LOCATION}
