@@ -1,5 +1,5 @@
 # Use a Java runtime as the base image
-FROM openjdk:17-slim-buster
+FROM --platform=linux/amd64,linux/arm64 openjdk:17-slim-buster
 
 # Set the working directory to /app
 WORKDIR /app
