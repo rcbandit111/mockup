@@ -1,2 +1,12 @@
 init:
   message: "Test message loaded from default application.yml file"
+
+spring:
+  application:
+    name: mockup
+server:
+  port: 8761
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false

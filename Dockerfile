@@ -1,14 +1,13 @@
 # Use a Java runtime as the base image
-FROM --platform=linux/amd64,linux/arm64 openjdk:17-slim-buster
+FROM openjdk:21-slim-buster
 
-# Set the working directory to /app
-WORKDIR /app
+VOLUME /tmp
 
 # Copy the built JAR file into the container
-COPY build/libs/*.jar /app/
+ADD build/libs/mockup.jar mockup.jar
 
 # Expose the default port for the app
 EXPOSE 8080
 
 # Start the app when the container launches
-CMD ["java", "-jar", "mockup-0.0.1.jar", "--spring.config.location=file:/home/config/application-mockup-configuration.yml"]
+ENTRYPOINT ["java", "-jar", "mockup.jar", "--spring.config.location=file:/home/config/application-mockup-configuration.yml"]
