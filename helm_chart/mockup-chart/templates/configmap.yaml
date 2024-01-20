@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    reloader.stakater.com/match: "true"
+  name: application-mockup-configuration-configmap-env
+data:
+  REGION: us-east-1
+  ECR_REPOSITORY: 456464567.dkr.ecr.us-east-1.amazonaws.com/mockup
+  SECRET_NAME: awsecr-cred
+  NAMESPACE_NAME: {{ .Release.Namespace }}
+  DOCKER_SECRET_NAME: regcred

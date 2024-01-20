@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: application-mockup-configuration
+data:
+  application-mockup-configuration.yml: |
+    init:
+      message: "Test message loaded from default external application-mockup-configuration.yml file !!!!!!!!!!!"
+    spring:
+      application:
+        name: mockup-test
+      jackson:
+        default-property-inclusion: non_null
+      jmx:
+        enabled: false
+

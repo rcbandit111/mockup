@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mockup.fullname" . }}
+  labels:
+    {{- include "mockup.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http
+      nodePort: 30066
+      port: 8761
+      protocol: TCP
+      targetPort: http
+  selector:
+    {{- include "mockup.selectorLabels" . | nindent 4 }}
