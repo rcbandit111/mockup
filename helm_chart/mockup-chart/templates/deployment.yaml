@@ -57,6 +57,9 @@ spec:
             - name: application-mockup-configuration
               mountPath: /home/config/application-mockup-configuration.yml
               subPath: application-mockup-configuration.yml
+            - name: vault-second-configuration
+              mountPath: /storage/vault-configuration.yml
+              subPath: vault-configuration.yml
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
