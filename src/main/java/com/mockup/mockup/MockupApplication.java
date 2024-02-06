@@ -23,7 +23,7 @@ import java.util.Map;
 @EnableEurekaServer
 public class MockupApplication {
 
-	private Path vaultPropertiesPath = Path.of("/storage/vault-configuration.yml");
+	private Path vaultPropertiesPath = Path.of("/opt/sec-configuration.yml");
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void testing() throws IOException {
