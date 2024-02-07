@@ -37,8 +37,8 @@ public class MockupApplication {
 	public void readSecrets() throws IOException {
 		InputStream vaultPropertiesStream = Files.newInputStream(vaultPropertiesPath);
 		Map vaultPropertiesMap = new Yaml().loadAs(vaultPropertiesStream, Map.class);
-		String test = vaultPropertiesMap.get("password").toString();
-		System.out.println(test);
+//		String test = vaultPropertiesMap.get("password").toString();
+//		System.out.println(test);
 	}
 
 }
