@@ -9,6 +9,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 import org.yaml.snakeyaml.Yaml;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -34,11 +36,21 @@ public class MockupApplication {
 		SpringApplication.run(MockupApplication.class, args);
 	}
 
+	Yaml yaml = new Yaml();
+
 	public void readSecrets() throws IOException {
-		InputStream vaultPropertiesStream = Files.newInputStream(vaultPropertiesPath);
-		Map vaultPropertiesMap = new Yaml().loadAs(vaultPropertiesStream, Map.class);
-//		String test = vaultPropertiesMap.get("password").toString();
-//		System.out.println(test);
+		try {
+			// Replace "example.yml" with the path to your YAML file
+			FileInputStream inputStream = new FileInputStream("/opt/sec-configuration.yml");
+			// Load YAML file into a Map
+			Map<String, Object> obj = yaml.load(inputStream);
+
+			// Access values from the Map
+			String value = (String) obj.get("password");
+			System.out.println("Value from YAML: " + value);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
