@@ -6,7 +6,7 @@ spring:
     name: mockup
   cloud:
     kubernetes:
-      discovery-server-url: spring-cloud-kubernetes-discoveryserver.default.svc:8761
+      discovery-server-url: spring-cloud-kubernetes-discoveryserver.default.svc:80
 
 server:
   port: 8761
