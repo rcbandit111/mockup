@@ -4,6 +4,10 @@ init:
 spring:
   application:
     name: mockup
+  cloud:
+    kubernetes:
+      discovery-server-url: spring-cloud-kubernetes-discoveryserver.default.svc:8761
+
 server:
   port: 8761
 eureka:
