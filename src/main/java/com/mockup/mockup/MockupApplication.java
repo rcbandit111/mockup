@@ -3,7 +3,6 @@ package com.mockup.mockup;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.event.EventListener;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -22,7 +21,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 @SpringBootApplication
-@EnableEurekaServer
 public class MockupApplication {
 
 	private Path vaultPropertiesPath = Path.of("/opt/sec-configuration.yml");
