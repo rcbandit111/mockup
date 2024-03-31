@@ -6,8 +6,8 @@ spring:
     name: mockup
   cloud:
     kubernetes:
-      discovery-server-url: "spring-cloud-kubernetes-discoveryserver.default.svc:8761"
       discovery:
+        discovery-server-url: "spring-cloud-kubernetes-discoveryserver.default.svc:8761"
         all-namespaces: true
 
 server:
