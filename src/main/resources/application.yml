@@ -5,10 +5,10 @@ spring:
   application:
     name: mockup
   cloud:
-    kubernetes:
-      discovery:
-        discovery-server-url: "spring-cloud-kubernetes-discoveryserver.default.svc:8761"
-        all-namespaces: true
+#    kubernetes:
+#      discovery:
+#        discovery-server-url: "spring-cloud-kubernetes-discoveryserver.default.svc:8761"
+#        all-namespaces: true
 
 server:
   port: 8761
