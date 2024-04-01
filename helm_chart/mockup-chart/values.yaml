@@ -6,7 +6,7 @@ image:
   tag: "0.0.1"
 
 imagePullSecrets:
-  - name: regcred #awsecr-cred
+  - name: regcred #secret used ot get credentials for aws ecr. It's manually generated.
 
 nameOverride: "mockup"
 fullnameOverride: "mockup"
