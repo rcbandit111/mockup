@@ -3,10 +3,19 @@ kind: Role
 metadata:
   name: role-full-access-to-secrets
 rules:
-- apiGroups: [""]
+- apiGroups: [""]   # access secret - regcred
   resources: ["secrets"]
   resourceNames: ["regcred"]
   verbs: ["delete"]
 - apiGroups: [""]
   resources: ["secrets"]
   verbs: ["create"]
+- apiGroups: [""]
+  resources: ["nodes", "services", "pods", "endpoints"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["configmaps"]
+  verbs: ["get"]
+- apiGroups: ["extensions"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "watch"]
