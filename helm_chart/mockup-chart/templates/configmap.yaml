@@ -6,7 +6,7 @@ metadata:
   name: application-mockup-configuration-configmap-env
 data:
   REGION: us-east-1
-  ECR_REPOSITORY: 456464567.dkr.ecr.us-east-1.amazonaws.com/mockup
-  SECRET_NAME: awsecr-cred
+  ECR_REPOSITORY: public.ecr.aws/p1c6t8w0/public_mockup
+  SECRET_NAME: regcred
   NAMESPACE_NAME: {{ .Release.Namespace }}
   DOCKER_SECRET_NAME: regcred

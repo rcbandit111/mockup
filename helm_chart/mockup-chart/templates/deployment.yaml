@@ -37,14 +37,6 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          # livenessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
           envFrom:
           - secretRef:
               name: mockup-secret-env
@@ -52,9 +44,6 @@ spec:
               name: application-mockup-configuration-configmap-env
           - configMapRef:
               name: vault-configuration
-#          env:
-#            - name: CONFIG_LOCATION
-#              value: "/home/config/application-mockup-configuration.yml"
           volumeMounts:
             - name: application-mockup-configuration
               mountPath: /home/config/application-mockup-configuration.yml

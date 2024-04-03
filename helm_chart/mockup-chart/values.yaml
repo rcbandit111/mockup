@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: 45745774574745754.dkr.ecr.us-east-1.amazonaws.com/mockup
+  repository: public.ecr.aws/p1c6t8w0/public_mockup
   pullPolicy: Always
   tag: "0.0.1"
 
@@ -67,7 +67,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-cronjob:
-  name: mockup-job
-  image: gtsopour/awscli-kubectl:latest
