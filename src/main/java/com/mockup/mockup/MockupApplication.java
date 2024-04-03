@@ -3,6 +3,7 @@ package com.mockup.mockup;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.context.event.EventListener;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -23,32 +24,25 @@ import java.util.Map;
 @SpringBootApplication
 public class MockupApplication {
 
-	private Path vaultPropertiesPath = Path.of("/opt/sec-configuration.yml");
+	DiscoveryClient discoveryClient;
+
+	public MockupApplication(DiscoveryClient discoveryClient) {
+		this.discoveryClient = discoveryClient;
+	}
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void testing() throws IOException {
-		readSecrets();
+
+		int size = discoveryClient.getServices().size();
+		System.out.println("Starting EventListener when ApplicationReadyEvent !!!");
+		System.out.println("Kubernetes services size " + size);
+		discoveryClient.probe();
+		for (String service : discoveryClient.getServices()) {
+			System.out.println("Discovered service " + service);
+		}
 	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(MockupApplication.class, args);
 	}
-
-	Yaml yaml = new Yaml();
-
-	public void readSecrets() throws IOException {
-		try {
-			// Replace "example.yml" with the path to your YAML file
-			FileInputStream inputStream = new FileInputStream("/opt/sec-configuration.yml");
-			// Load YAML file into a Map
-			Map<String, Object> obj = yaml.load(inputStream);
-
-			// Access values from the Map
-			String value = (String) obj.get("password");
-			System.out.println("Value from YAML: " + value);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
 }
