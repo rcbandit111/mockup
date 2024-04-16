@@ -1,14 +1,18 @@
-init:
-  message: "Test message loaded from default application.yml file"
-
 spring:
   application:
-    name: mockup
+    name: int-test-project
   cloud:
-#    kubernetes:
-#      discovery:
-#        discovery-server-url: "spring-cloud-kubernetes-discoveryserver.default.svc:8761"
-#        all-namespaces: true
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        serviceId: int-test-project-config
+      failFast: true
+  jackson:
+    time-zone: UTC
+
+init:
+  message: "Test message loaded from default application.yml file"
 
 server:
   port: 8761
