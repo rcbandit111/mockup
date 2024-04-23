@@ -1,13 +1,10 @@
 spring:
   application:
     name: int-test-project
-#  cloud:
-#    config:
-#      enabled: true
-#      discovery:
-#        enabled: true
-#        serviceId: int-test-project-config
-#      failFast: true
+  cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
   jackson:
     time-zone: UTC
 
