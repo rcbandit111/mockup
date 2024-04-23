@@ -1,13 +1,13 @@
 spring:
   application:
     name: int-test-project
-  cloud:
-    config:
-      enabled: true
-      discovery:
-        enabled: true
-        serviceId: int-test-project-config
-      failFast: true
+#  cloud:
+#    config:
+#      enabled: true
+#      discovery:
+#        enabled: true
+#        serviceId: int-test-project-config
+#      failFast: true
   jackson:
     time-zone: UTC
 
@@ -16,7 +16,7 @@ init:
 
 server:
   port: 8761
-eureka:
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
+#eureka:
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
