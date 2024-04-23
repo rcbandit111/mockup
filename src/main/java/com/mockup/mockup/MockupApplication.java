@@ -7,18 +7,14 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.event.EventListener;
-import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.io.IOException;
 
 @EnableFeignClients
-@EnableRetry
 @RefreshScope
-@EnableHystrix
 @EntityScan
 @SpringBootApplication
 @EnableAsync
@@ -32,7 +28,7 @@ public class MockupApplication {
 	}
 
 	@EventListener(ApplicationReadyEvent.class)
-	public void testing() throws IOException {
+	public void testing() {
 
 		int size = discoveryClient.getServices().size();
 		System.out.println("Starting EventListener when ApplicationReadyEvent !!!");
