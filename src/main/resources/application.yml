@@ -2,9 +2,11 @@ spring:
   application:
     name: int-test-project
   cloud:
-    kubernetes:
+    gateway:
       discovery:
-        all-namespaces: true
+        locator:
+          enabled: true
+          lower-case-service-id: true
   jackson:
     time-zone: UTC
 
