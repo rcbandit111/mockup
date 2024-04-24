@@ -13,9 +13,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @EnableFeignClients
 @RefreshScope
-@EntityScan
 @SpringBootApplication
-@EnableAsync
 @EnableDiscoveryClient
 public class Application {
 
