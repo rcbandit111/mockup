@@ -11,19 +11,17 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-import java.io.IOException;
-
 @EnableFeignClients
 @RefreshScope
 @EntityScan
 @SpringBootApplication
 @EnableAsync
 @EnableDiscoveryClient
-public class MockupApplication {
+public class Application {
 
 	DiscoveryClient discoveryClient;
 
-	public MockupApplication(DiscoveryClient discoveryClient) {
+	public Application(DiscoveryClient discoveryClient) {
 		this.discoveryClient = discoveryClient;
 	}
 
@@ -40,6 +38,6 @@ public class MockupApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(MockupApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }

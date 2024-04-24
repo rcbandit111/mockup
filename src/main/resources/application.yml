@@ -1,12 +1,13 @@
 spring:
   application:
-    name: int-test-project
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+    name: mockup
+#  cloud:
+#    config:
+#      enabled: true
+#      discovery:
+#        enabled: true
+#        serviceId: int-test-project-config
+#      failFast: true
   jackson:
     time-zone: UTC
 
